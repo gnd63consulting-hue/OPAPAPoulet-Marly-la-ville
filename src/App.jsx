@@ -1129,55 +1129,72 @@ function OrderSection() {
           onClick={scrollToForm}
           style={{
             position: 'fixed',
-            bottom: '2rem',
-            right: '2rem',
-            background: 'linear-gradient(135deg, #FF6B00 0%, #E55D00 100%)',
+            bottom: '1.5rem',
+            right: '1.5rem',
+            background: '#1A1A1A',
             color: 'white',
             border: 'none',
-            borderRadius: '1rem',
-            padding: '1rem 1.5rem',
+            borderRadius: '50px',
+            padding: '0',
             cursor: 'pointer',
-            boxShadow: '0 10px 40px rgba(255,107,0,0.5)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.3), 0 0 0 3px rgba(255,107,0,0.3)',
             display: 'flex',
-            alignItems: 'center',
-            gap: '0.75rem',
+            alignItems: 'stretch',
             zIndex: 100,
             transition: 'transform 0.2s, box-shadow 0.2s',
-            animation: 'pulse 2s infinite'
+            overflow: 'hidden'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.05)'
-            e.currentTarget.style.boxShadow = '0 15px 50px rgba(255,107,0,0.6)'
+            e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)'
+            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.4), 0 0 0 3px rgba(255,107,0,0.5)'
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)'
-            e.currentTarget.style.boxShadow = '0 10px 40px rgba(255,107,0,0.5)'
+            e.currentTarget.style.transform = 'scale(1) translateY(0)'
+            e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.3), 0 0 0 3px rgba(255,107,0,0.3)'
           }}
         >
+          {/* Cart Icon Section */}
           <div style={{
-            position: 'relative',
-            fontSize: '1.5rem'
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '0.875rem 1rem',
+            background: 'linear-gradient(135deg, #FF6B00 0%, #E55D00 100%)',
+            position: 'relative'
           }}>
-            🛒
+            <span style={{ fontSize: '1.4rem' }}>🛒</span>
             <span style={{
               position: 'absolute',
-              top: '-8px',
-              right: '-8px',
+              top: '6px',
+              right: '6px',
               background: '#FFB800',
               color: '#1A1A1A',
-              fontSize: '0.7rem',
+              fontSize: '0.65rem',
               fontWeight: '800',
-              width: '20px',
-              height: '20px',
+              minWidth: '18px',
+              height: '18px',
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.2)'
             }}>{getTotalItems()}</span>
           </div>
-          <div style={{ textAlign: 'left' }}>
-            <div style={{ fontWeight: '700', fontSize: '0.95rem' }}>Mon panier</div>
-            <div style={{ fontSize: '0.85rem', opacity: 0.9 }}>{calculateTotal().toFixed(2)}€</div>
+          {/* Price Section */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '0.875rem 1.25rem 0.875rem 1rem',
+            background: '#1A1A1A'
+          }}>
+            <div style={{
+              fontSize: '1.1rem',
+              fontWeight: '800',
+              color: 'white',
+              letterSpacing: '-0.02em'
+            }}>
+              {calculateTotal().toFixed(2)} €
+            </div>
           </div>
         </button>
       )}
