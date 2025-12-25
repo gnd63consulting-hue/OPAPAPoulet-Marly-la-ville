@@ -205,7 +205,7 @@ function MenuSection() {
   ]
 
   return (
-    <section id="menu" className="py-20 bg-[#FFF5E6]">
+    <section id="menu" className="py-24 md:py-32 bg-[#FFF5E6]">
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1rem', boxSizing: 'border-box' }}>
         {/* Section Title */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -489,74 +489,148 @@ function OrderSection() {
   }
 
   return (
-    <section id="commander" className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="commander" style={{ padding: '6rem 0', background: 'linear-gradient(180deg, #FFFAF5 0%, #FFF5E6 100%)' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1rem' }}>
         {/* Section Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A] mb-4">Commandez en direct</h2>
-          <p className="text-lg text-gray-600">Click & Collect ou Livraison - Évitez les files d'attente</p>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            background: '#1A1A1A',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '3rem',
+            marginBottom: '1.5rem'
+          }}>
+            <span style={{ fontSize: '1.5rem' }}>🛒</span>
+            <span style={{ color: '#FFB800', fontWeight: '600', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Commande en ligne</span>
+          </div>
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: '800', color: '#1A1A1A', marginBottom: '0.75rem' }}>
+            Commandez en direct
+          </h2>
+          <p style={{ color: '#666', fontSize: '1.1rem' }}>Click & Collect ou Livraison - Évitez les files d'attente</p>
         </div>
 
         {/* Order Type Selection */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
           <button
+            type="button"
             onClick={() => setOrderType('clickCollect')}
-            className={`p-6 rounded-xl border-2 transition-all duration-300 ${
-              orderType === 'clickCollect'
-                ? 'border-[#FF6B00] bg-[#FF6B00]/5'
-                : 'border-gray-200 hover:border-[#FF6B00]/50'
-            }`}
+            style={{
+              padding: '1.5rem',
+              borderRadius: '1rem',
+              border: orderType === 'clickCollect' ? '3px solid #FF6B00' : '2px solid #e0e0e0',
+              background: orderType === 'clickCollect' ? 'linear-gradient(135deg, #FF6B00 0%, #FFB800 100%)' : 'white',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: orderType === 'clickCollect' ? '0 10px 30px rgba(255,107,0,0.3)' : '0 4px 15px rgba(0,0,0,0.05)'
+            }}
           >
-            <div className="text-4xl mb-3">🏃</div>
-            <h3 className="text-xl font-bold text-[#1A1A1A] mb-1">Click & Collect</h3>
-            <p className="text-gray-600">Prêt en 15-20 min</p>
+            <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🏃</div>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: '700', color: orderType === 'clickCollect' ? 'white' : '#1A1A1A', marginBottom: '0.25rem' }}>Click & Collect</h3>
+            <p style={{ fontSize: '0.85rem', color: orderType === 'clickCollect' ? 'rgba(255,255,255,0.9)' : '#666' }}>Prêt en 15-20 min</p>
           </button>
           <button
+            type="button"
             onClick={() => setOrderType('livraison')}
-            className={`p-6 rounded-xl border-2 transition-all duration-300 ${
-              orderType === 'livraison'
-                ? 'border-[#FF6B00] bg-[#FF6B00]/5'
-                : 'border-gray-200 hover:border-[#FF6B00]/50'
-            }`}
+            style={{
+              padding: '1.5rem',
+              borderRadius: '1rem',
+              border: orderType === 'livraison' ? '3px solid #FF6B00' : '2px solid #e0e0e0',
+              background: orderType === 'livraison' ? 'linear-gradient(135deg, #FF6B00 0%, #FFB800 100%)' : 'white',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: orderType === 'livraison' ? '0 10px 30px rgba(255,107,0,0.3)' : '0 4px 15px rgba(0,0,0,0.05)'
+            }}
           >
-            <div className="text-4xl mb-3">🚗</div>
-            <h3 className="text-xl font-bold text-[#1A1A1A] mb-1">Livraison</h3>
-            <p className="text-gray-600">Gratuite dès 15€</p>
+            <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🚗</div>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: '700', color: orderType === 'livraison' ? 'white' : '#1A1A1A', marginBottom: '0.25rem' }}>Livraison</h3>
+            <p style={{ fontSize: '0.85rem', color: orderType === 'livraison' ? 'rgba(255,255,255,0.9)' : '#666' }}>Gratuite dès 15€</p>
           </button>
         </div>
 
         {/* Success Message */}
         {isSubmitted && (
-          <div className="mb-8 p-6 bg-green-100 border border-green-500 rounded-xl text-center">
-            <div className="text-4xl mb-2">✅</div>
-            <h3 className="text-xl font-bold text-green-700 mb-1">Commande envoyée !</h3>
-            <p className="text-green-600">Nous vous contacterons rapidement pour confirmer votre commande.</p>
+          <div style={{
+            marginBottom: '2rem',
+            padding: '2rem',
+            background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+            borderRadius: '1rem',
+            textAlign: 'center',
+            boxShadow: '0 10px 30px rgba(16,185,129,0.3)'
+          }}>
+            <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>✅</div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: 'white', marginBottom: '0.5rem' }}>Commande envoyée !</h3>
+            <p style={{ color: 'rgba(255,255,255,0.9)' }}>Nous vous contacterons rapidement pour confirmer votre commande.</p>
           </div>
         )}
 
         {/* Order Form */}
-        <form onSubmit={handleSubmit} className="bg-[#FFF5E6] rounded-xl p-6 md:p-8 shadow-lg">
+        <form onSubmit={handleSubmit} style={{
+          background: 'white',
+          borderRadius: '1.5rem',
+          padding: '2rem',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.1)',
+          border: '1px solid rgba(255,107,0,0.1)'
+        }}>
+          {/* Form Header */}
+          <div style={{
+            background: 'linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%)',
+            margin: '-2rem -2rem 2rem -2rem',
+            padding: '1.5rem 2rem',
+            borderRadius: '1.5rem 1.5rem 0 0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.75rem'
+          }}>
+            <span style={{ fontSize: '1.5rem' }}>📝</span>
+            <h3 style={{ color: 'white', fontWeight: '700', fontSize: '1.25rem', margin: 0 }}>Votre commande</h3>
+          </div>
+
           {/* Personal Info */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
             <div>
-              <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">Nom *</label>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', marginBottom: '0.5rem' }}>
+                👤 Nom *
+              </label>
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all"
+                style={{
+                  width: '100%',
+                  padding: '0.875rem 1rem',
+                  borderRadius: '0.75rem',
+                  border: '2px solid #e5e5e5',
+                  fontSize: '1rem',
+                  outline: 'none',
+                  transition: 'border-color 0.2s',
+                  boxSizing: 'border-box'
+                }}
                 placeholder="Votre nom"
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">Téléphone *</label>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', marginBottom: '0.5rem' }}>
+                📱 Téléphone *
+              </label>
               <input
                 type="tel"
                 required
                 value={formData.phone}
                 onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all"
+                style={{
+                  width: '100%',
+                  padding: '0.875rem 1rem',
+                  borderRadius: '0.75rem',
+                  border: '2px solid #e5e5e5',
+                  fontSize: '1rem',
+                  outline: 'none',
+                  transition: 'border-color 0.2s',
+                  boxSizing: 'border-box'
+                }}
                 placeholder="06 XX XX XX XX"
               />
             </div>
@@ -564,48 +638,129 @@ function OrderSection() {
 
           {/* Address (only for delivery) */}
           {orderType === 'livraison' && (
-            <div className="mb-6">
-              <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">Adresse de livraison *</label>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', marginBottom: '0.5rem' }}>
+                📍 Adresse de livraison *
+              </label>
               <input
                 type="text"
                 required
                 value={formData.address}
                 onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all"
+                style={{
+                  width: '100%',
+                  padding: '0.875rem 1rem',
+                  borderRadius: '0.75rem',
+                  border: '2px solid #e5e5e5',
+                  fontSize: '1rem',
+                  outline: 'none',
+                  boxSizing: 'border-box'
+                }}
                 placeholder="Numéro, rue, code postal, ville"
               />
             </div>
           )}
 
           {/* Menu Items Selection by Category */}
-          <div className="mb-6">
-            <label className="block text-sm font-semibold text-[#1A1A1A] mb-4">Sélectionnez vos articles</label>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              marginBottom: '1rem',
+              paddingBottom: '0.75rem',
+              borderBottom: '2px solid #FF6B00'
+            }}>
+              <span style={{ fontSize: '1.25rem' }}>🍽️</span>
+              <span style={{ fontWeight: '700', color: '#1A1A1A', fontSize: '1rem' }}>Sélectionnez vos articles</span>
+            </div>
 
             {menuCategories.map((category) => (
-              <div key={category.title} className="mb-6">
-                <h4 className="flex items-center gap-2 text-md font-semibold text-[#1A1A1A] mb-3 pb-2 border-b border-gray-200">
+              <div key={category.title} style={{ marginBottom: '1.5rem' }}>
+                <h4 style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  fontSize: '0.95rem',
+                  fontWeight: '600',
+                  color: '#1A1A1A',
+                  marginBottom: '0.75rem',
+                  background: '#FFF5E6',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.5rem',
+                  borderLeft: '4px solid #FF6B00'
+                }}>
                   <span>{category.icon}</span> {category.title}
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.75rem' }}>
                   {category.items.map((item) => (
-                    <div key={item.id} className="flex items-center justify-between bg-white p-3 rounded-lg border border-gray-200 hover:border-[#FF6B00]/30 transition-colors">
-                      <div className="flex-1 min-w-0">
-                        <span className="font-medium text-[#1A1A1A] text-sm">{item.name}</span>
-                        <span className="ml-2 text-[#FF6B00] font-semibold text-sm">{item.price.toFixed(2)}€</span>
+                    <div key={item.id} style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      background: selectedItems[item.id] > 0 ? 'linear-gradient(135deg, #FFF5E6 0%, #FFFAF5 100%)' : '#FAFAFA',
+                      padding: '0.875rem 1rem',
+                      borderRadius: '0.75rem',
+                      border: selectedItems[item.id] > 0 ? '2px solid #FF6B00' : '1px solid #e5e5e5',
+                      transition: 'all 0.2s ease'
+                    }}>
+                      <div style={{ flex: 1 }}>
+                        <span style={{ fontWeight: '500', color: '#1A1A1A', fontSize: '0.9rem' }}>{item.name}</span>
+                        <span style={{
+                          marginLeft: '0.5rem',
+                          color: '#FF6B00',
+                          fontWeight: '700',
+                          fontSize: '0.9rem'
+                        }}>{item.price.toFixed(2)}€</span>
                       </div>
-                      <div className="flex items-center gap-2 flex-shrink-0">
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <button
                           type="button"
                           onClick={() => handleItemChange(item.id, (selectedItems[item.id] || 0) - 1)}
-                          className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center font-bold text-[#1A1A1A] transition-colors"
+                          style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '50%',
+                            border: 'none',
+                            background: '#e5e5e5',
+                            cursor: 'pointer',
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            color: '#666',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transition: 'background 0.2s'
+                          }}
                         >
-                          -
+                          −
                         </button>
-                        <span className="w-6 text-center font-semibold text-sm">{selectedItems[item.id] || 0}</span>
+                        <span style={{
+                          width: '28px',
+                          textAlign: 'center',
+                          fontWeight: '700',
+                          fontSize: '1rem',
+                          color: selectedItems[item.id] > 0 ? '#FF6B00' : '#1A1A1A'
+                        }}>{selectedItems[item.id] || 0}</span>
                         <button
                           type="button"
                           onClick={() => handleItemChange(item.id, (selectedItems[item.id] || 0) + 1)}
-                          className="w-8 h-8 rounded-full bg-[#FF6B00] hover:bg-[#E55D00] flex items-center justify-center font-bold text-white transition-colors"
+                          style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '50%',
+                            border: 'none',
+                            background: 'linear-gradient(135deg, #FF6B00 0%, #FFB800 100%)',
+                            cursor: 'pointer',
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            color: 'white',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            boxShadow: '0 4px 15px rgba(255,107,0,0.3)',
+                            transition: 'transform 0.2s'
+                          }}
                         >
                           +
                         </button>
@@ -619,57 +774,109 @@ function OrderSection() {
 
           {/* Total */}
           {calculateTotal() > 0 && (
-            <div className="mb-6 p-4 bg-[#FF6B00]/10 rounded-lg">
-              <div className="flex justify-between items-center">
-                <span className="text-lg font-semibold text-[#1A1A1A]">Total estimé :</span>
-                <span className="text-2xl font-bold text-[#FF6B00]">{calculateTotal().toFixed(2)}€</span>
+            <div style={{
+              marginBottom: '1.5rem',
+              padding: '1.25rem',
+              background: 'linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%)',
+              borderRadius: '1rem',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.15)'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '1.1rem', fontWeight: '600', color: 'white' }}>🧾 Total estimé :</span>
+                <span style={{
+                  fontSize: '1.75rem',
+                  fontWeight: '800',
+                  color: '#FFB800',
+                  background: 'rgba(255,184,0,0.15)',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.5rem'
+                }}>{calculateTotal().toFixed(2)}€</span>
               </div>
               {orderType === 'livraison' && calculateTotal() < 15 && (
-                <p className="text-sm text-gray-600 mt-2">
-                  Ajoutez {(15 - calculateTotal()).toFixed(2)}€ pour la livraison gratuite
+                <p style={{ fontSize: '0.85rem', color: '#FF6B00', marginTop: '0.75rem', textAlign: 'center' }}>
+                  🚗 Ajoutez {(15 - calculateTotal()).toFixed(2)}€ pour la livraison gratuite
                 </p>
               )}
             </div>
           )}
 
-          {/* Time Selection */}
-          <div className="mb-6">
-            <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">Heure souhaitée *</label>
-            <select
-              required
-              value={formData.time}
-              onChange={(e) => setFormData(prev => ({ ...prev, time: e.target.value }))}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all bg-white"
-            >
-              <option value="">Choisir une heure</option>
-              {timeSlots.map((time) => (
-                <option key={time} value={time}>{time}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Comment */}
-          <div className="mb-6">
-            <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">Commentaire (optionnel)</label>
-            <textarea
-              value={formData.comment}
-              onChange={(e) => setFormData(prev => ({ ...prev, comment: e.target.value }))}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all resize-none"
-              rows="3"
-              placeholder="Instructions spéciales, allergies, etc."
-            />
+          {/* Time & Comment */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', marginBottom: '0.5rem' }}>
+                🕐 Heure souhaitée *
+              </label>
+              <select
+                required
+                value={formData.time}
+                onChange={(e) => setFormData(prev => ({ ...prev, time: e.target.value }))}
+                style={{
+                  width: '100%',
+                  padding: '0.875rem 1rem',
+                  borderRadius: '0.75rem',
+                  border: '2px solid #e5e5e5',
+                  fontSize: '1rem',
+                  outline: 'none',
+                  background: 'white',
+                  cursor: 'pointer',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <option value="">Choisir une heure</option>
+                {timeSlots.map((time) => (
+                  <option key={time} value={time}>{time}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', marginBottom: '0.5rem' }}>
+                💬 Commentaire (optionnel)
+              </label>
+              <textarea
+                value={formData.comment}
+                onChange={(e) => setFormData(prev => ({ ...prev, comment: e.target.value }))}
+                style={{
+                  width: '100%',
+                  padding: '0.875rem 1rem',
+                  borderRadius: '0.75rem',
+                  border: '2px solid #e5e5e5',
+                  fontSize: '1rem',
+                  outline: 'none',
+                  resize: 'none',
+                  minHeight: '80px',
+                  boxSizing: 'border-box'
+                }}
+                placeholder="Instructions spéciales, allergies, etc."
+              />
+            </div>
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#FF6B00] hover:bg-[#E55D00] text-white font-bold text-lg py-4 rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg"
+            style={{
+              width: '100%',
+              padding: '1.25rem',
+              borderRadius: '1rem',
+              border: 'none',
+              background: 'linear-gradient(135deg, #FF6B00 0%, #E55D00 100%)',
+              color: 'white',
+              fontSize: '1.2rem',
+              fontWeight: '700',
+              cursor: 'pointer',
+              boxShadow: '0 10px 30px rgba(255,107,0,0.4)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.75rem'
+            }}
           >
-            Envoyer ma commande
+            <span>🚀</span> Envoyer ma commande
           </button>
 
           {/* Note */}
-          <p className="text-center text-sm text-gray-500 mt-4">
+          <p style={{ textAlign: 'center', fontSize: '0.9rem', color: '#666', marginTop: '1rem' }}>
             💳 Paiement sur place ou à la livraison
           </p>
         </form>
@@ -687,7 +894,7 @@ function ContactSection() {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-[#1A1A1A]">
+    <section id="contact" className="py-24 md:py-32 bg-[#1A1A1A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div className="text-center mb-12">
