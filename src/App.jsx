@@ -262,51 +262,124 @@ function MenuSection() {
           </div>
         </div>
 
-        {/* Grid for smaller items - Centered container */}
-        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: '960px', width: '100%', margin: '0 auto' }}>
-            {/* Nos Poulets */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
-              <h3 style={{ textAlign: 'center' }} className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
-                <span className="text-[#FF6B00]">🐔</span> Nos Poulets
-              </h3>
-              <div className="space-y-3">
+        {/* La Carte Complète - New stylish design */}
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <h3 style={{ textAlign: 'center', marginBottom: '2rem' }} className="text-2xl md:text-3xl font-bold text-[#1A1A1A] flex items-center justify-center gap-2">
+            <span className="text-[#FF6B00]">📋</span> La Carte Complète
+          </h3>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+            {/* Nos Poulets & Viandes */}
+            <div style={{
+              background: 'linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%)',
+              borderRadius: '1rem',
+              overflow: 'hidden',
+              boxShadow: '0 10px 40px rgba(0,0,0,0.15)'
+            }}>
+              <div style={{
+                background: 'linear-gradient(135deg, #FF6B00 0%, #FFB800 100%)',
+                padding: '1.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.75rem'
+              }}>
+                <span style={{ fontSize: '2rem' }}>🐔</span>
+                <h4 style={{ color: 'white', fontWeight: '700', fontSize: '1.25rem', margin: 0 }}>Nos Poulets & Viandes</h4>
+              </div>
+              <div style={{ padding: '1.5rem' }}>
                 {poulets.map((item, index) => (
-                  <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-                    <span className="text-gray-700">{item.name}</span>
-                    <span className="font-semibold text-[#FF6B00]">{item.price}</span>
+                  <div key={index} style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '0.75rem 0',
+                    borderBottom: index < poulets.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none'
+                  }}>
+                    <span style={{ color: '#FFFAF5', fontSize: '0.95rem' }}>{item.name}</span>
+                    <span style={{
+                      color: '#FFB800',
+                      fontWeight: '700',
+                      fontSize: '1rem',
+                      background: 'rgba(255,184,0,0.15)',
+                      padding: '0.25rem 0.75rem',
+                      borderRadius: '2rem'
+                    }}>{item.price}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Accompagnements */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
-              <h3 style={{ textAlign: 'center' }} className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
-                <span className="text-[#FF6B00]">🍚</span> Accompagnements
-              </h3>
-              <div className="space-y-3">
-                {accompagnements.map((item, index) => (
-                  <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-                    <span className="text-gray-700">{item.name}</span>
-                    <span className="font-semibold text-[#FF6B00]">{item.price}</span>
-                  </div>
-                ))}
+            {/* Accompagnements & Boissons */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {/* Accompagnements */}
+              <div style={{
+                background: 'white',
+                borderRadius: '1rem',
+                overflow: 'hidden',
+                boxShadow: '0 10px 40px rgba(0,0,0,0.08)',
+                border: '2px solid #FF6B00'
+              }}>
+                <div style={{
+                  background: '#FF6B00',
+                  padding: '1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>🍚</span>
+                  <h4 style={{ color: 'white', fontWeight: '700', fontSize: '1.1rem', margin: 0 }}>Accompagnements</h4>
+                </div>
+                <div style={{ padding: '1rem 1.5rem' }}>
+                  {accompagnements.map((item, index) => (
+                    <div key={index} style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      padding: '0.6rem 0',
+                      borderBottom: index < accompagnements.length - 1 ? '1px solid #f0f0f0' : 'none'
+                    }}>
+                      <span style={{ color: '#1A1A1A', fontSize: '0.95rem' }}>{item.name}</span>
+                      <span style={{ color: '#FF6B00', fontWeight: '700' }}>{item.price}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Boissons & Desserts */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
-              <h3 style={{ textAlign: 'center' }} className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
-                <span className="text-[#FF6B00]">🥤</span> Boissons & Desserts
-              </h3>
-              <div className="space-y-3">
-                {boissons.map((item, index) => (
-                  <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-                    <span className="text-gray-700">{item.name}</span>
-                    <span className="font-semibold text-[#FF6B00]">{item.price}</span>
-                  </div>
-                ))}
+              {/* Boissons & Desserts */}
+              <div style={{
+                background: 'white',
+                borderRadius: '1rem',
+                overflow: 'hidden',
+                boxShadow: '0 10px 40px rgba(0,0,0,0.08)',
+                border: '2px solid #FFB800'
+              }}>
+                <div style={{
+                  background: 'linear-gradient(135deg, #FFB800 0%, #FF6B00 100%)',
+                  padding: '1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>🥤</span>
+                  <h4 style={{ color: 'white', fontWeight: '700', fontSize: '1.1rem', margin: 0 }}>Boissons & Desserts</h4>
+                </div>
+                <div style={{ padding: '1rem 1.5rem' }}>
+                  {boissons.map((item, index) => (
+                    <div key={index} style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      padding: '0.6rem 0',
+                      borderBottom: index < boissons.length - 1 ? '1px solid #f0f0f0' : 'none'
+                    }}>
+                      <span style={{ color: '#1A1A1A', fontSize: '0.95rem' }}>{item.name}</span>
+                      <span style={{ color: '#FF6B00', fontWeight: '700' }}>{item.price}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
