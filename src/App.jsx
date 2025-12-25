@@ -165,13 +165,19 @@ function HeroSection() {
 
 // ============ MENU SECTION ============
 function MenuSection() {
+  const [imageErrors, setImageErrors] = useState({})
+
+  const handleImageError = (index) => {
+    setImageErrors(prev => ({ ...prev, [index]: true }))
+  }
+
   const menus = [
-    { name: 'Menu Poulet', price: '7,50€', description: '1 accompagnement + 1 cuisse de poulet + 1 boisson', image: 'https://images.unsplash.com/photo-1626645738196-c2a72c105313?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-    { name: 'Menu Donuts', price: '7,50€', description: '1 accompagnement + 1 donuts + 1 boisson', image: 'https://images.unsplash.com/photo-1608039829572-44a9a24b6e84?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-    { name: 'Menu Saucisse', price: '7,50€', description: '1 accompagnement + 2 saucisses + 1 boisson', image: 'https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-    { name: 'Menu Nem', price: '7,50€', description: '1 accompagnement + 3 nems + 1 boisson', image: 'https://images.unsplash.com/photo-1617093727343-374698b1b08d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-    { name: 'Papa Crousty', price: '10€', description: 'Papa crousty + 1 boisson', badge: 'BEST-SELLER', image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-    { name: 'Menu Famille', price: '31€', description: '2 poulets entiers + 4 accompagnements + 4 boissons', badge: 'À PARTAGER', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+    { name: 'Menu Poulet', price: '7,50€', description: '1 accompagnement + 1 cuisse de poulet + 1 boisson', image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop' },
+    { name: 'Menu Donuts', price: '7,50€', description: '1 accompagnement + 1 donuts + 1 boisson', image: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=400&h=300&fit=crop' },
+    { name: 'Menu Saucisse', price: '7,50€', description: '1 accompagnement + 2 saucisses + 1 boisson', image: 'https://images.unsplash.com/photo-1601030638996-3c6d26fc5dd5?w=400&h=300&fit=crop' },
+    { name: 'Menu Nem', price: '7,50€', description: '1 accompagnement + 3 nems + 1 boisson', image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop' },
+    { name: 'Papa Crousty', price: '10€', description: 'Papa crousty + 1 boisson', badge: 'BEST-SELLER', image: 'https://images.unsplash.com/photo-1626645738196-c2a72c105313?w=400&h=300&fit=crop' },
+    { name: 'Menu Famille', price: '31€', description: '2 poulets entiers + 4 accompagnements + 4 boissons', badge: 'À PARTAGER', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop' },
   ]
 
   const poulets = [
@@ -222,12 +228,20 @@ function MenuSection() {
                 key={index}
                 className="bg-white rounded-xl shadow-lg overflow-hidden border border-[#FF6B00]/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                <div className="relative h-[200px] overflow-hidden bg-[#FFF5E6] rounded-t-xl">
+                  {imageErrors[index] ? (
+                    <div className="w-full h-full flex flex-col items-center justify-center">
+                      <span className="text-4xl mb-2">🍗</span>
+                      <span className="text-[#FF6B00] font-semibold text-sm">{item.name}</span>
+                    </div>
+                  ) : (
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      onError={() => handleImageError(index)}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  )}
                   {item.badge && (
                     <span className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${item.badge === 'BEST-SELLER' ? 'bg-[#FFB800]' : 'bg-[#8B2500]'}`}>
                       {item.badge}
@@ -311,22 +325,62 @@ function OrderSection() {
   const [selectedItems, setSelectedItems] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const menuItems = [
-    { id: 'menu-poulet', name: 'Menu Poulet', price: 7.50 },
-    { id: 'menu-donuts', name: 'Menu Donuts', price: 7.50 },
-    { id: 'menu-saucisse', name: 'Menu Saucisse', price: 7.50 },
-    { id: 'menu-nem', name: 'Menu Nem', price: 7.50 },
-    { id: 'papa-crousty', name: 'Papa Crousty', price: 10 },
-    { id: 'menu-famille', name: 'Menu Famille', price: 31 },
-    { id: 'poulet-entier', name: 'Poulet entier', price: 7.50 },
-    { id: 'demi-poulet', name: 'Demi poulet', price: 4 },
-    { id: 'cuisse', name: 'Cuisse de poulet', price: 2.50 },
-    { id: 'riz', name: 'Riz thaï', price: 4 },
-    { id: 'pates', name: 'Pâtes curry', price: 4 },
-    { id: 'pomme-terre', name: 'Pomme de terre', price: 4 },
-    { id: 'boisson', name: 'Boisson', price: 1.50 },
-    { id: 'tiramisu', name: 'Tiramisu', price: 3.50 },
+  const menuCategories = [
+    {
+      title: 'Nos Menus',
+      icon: '🍗',
+      items: [
+        { id: 'menu-poulet', name: 'Menu Poulet', price: 7.50 },
+        { id: 'menu-donuts', name: 'Menu Donuts', price: 7.50 },
+        { id: 'menu-saucisse', name: 'Menu Saucisse', price: 7.50 },
+        { id: 'menu-nem', name: 'Menu Nem', price: 7.50 },
+        { id: 'papa-crousty', name: 'Papa Crousty', price: 10.00 },
+        { id: 'menu-famille', name: 'Menu Famille', price: 31.00 },
+      ]
+    },
+    {
+      title: 'Poulets & Viandes',
+      icon: '🐔',
+      items: [
+        { id: 'poulet-entier', name: 'Poulet entier', price: 7.50 },
+        { id: 'demi-poulet', name: 'Demi poulet', price: 4.00 },
+        { id: 'cuisse', name: 'Cuisse de poulet', price: 2.50 },
+        { id: 'donuts', name: 'Donuts', price: 2.50 },
+        { id: 'saucisse-1', name: '1 Saucisse', price: 2.00 },
+        { id: 'saucisse-3', name: '3 Saucisses', price: 5.00 },
+        { id: 'nem-1', name: '1 Nem', price: 1.50 },
+        { id: 'nem-3', name: '3 Nems', price: 4.00 },
+        { id: 'brick', name: '1 Brick', price: 2.50 },
+      ]
+    },
+    {
+      title: 'Accompagnements',
+      icon: '🍚',
+      items: [
+        { id: 'riz', name: 'Riz thaï', price: 4.00 },
+        { id: 'pates', name: 'Pâtes curry', price: 4.00 },
+        { id: 'pomme-terre', name: 'Pomme de terre', price: 4.00 },
+      ]
+    },
+    {
+      title: 'Boissons & Desserts',
+      icon: '🥤',
+      items: [
+        { id: 'boisson', name: 'Boisson', price: 1.50 },
+        { id: 'tiramisu', name: 'Tiramisu', price: 3.50 },
+      ]
+    },
+    {
+      title: 'Sauces',
+      icon: '🥫',
+      items: [
+        { id: 'sauce-verte', name: 'Sauce verte', price: 0.50 },
+        { id: 'sauce-oignon', name: 'Sauce oignon', price: 0.50 },
+      ]
+    }
   ]
+
+  const allItems = menuCategories.flatMap(cat => cat.items)
 
   const timeSlots = [
     '11h30', '12h00', '12h30', '13h00', '13h30', '14h00',
@@ -342,7 +396,7 @@ function OrderSection() {
 
   const calculateTotal = () => {
     return Object.entries(selectedItems).reduce((total, [itemId, quantity]) => {
-      const item = menuItems.find(i => i.id === itemId)
+      const item = allItems.find(i => i.id === itemId)
       return total + (item ? item.price * quantity : 0)
     }, 0)
   }
@@ -441,41 +495,49 @@ function OrderSection() {
                 value={formData.address}
                 onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all"
-                placeholder="Votre adresse complète"
+                placeholder="Numéro, rue, code postal, ville"
               />
             </div>
           )}
 
-          {/* Menu Items Selection */}
+          {/* Menu Items Selection by Category */}
           <div className="mb-6">
             <label className="block text-sm font-semibold text-[#1A1A1A] mb-4">Sélectionnez vos articles</label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {menuItems.map((item) => (
-                <div key={item.id} className="flex items-center justify-between bg-white p-3 rounded-lg border border-gray-200">
-                  <div className="flex-1">
-                    <span className="font-medium text-[#1A1A1A]">{item.name}</span>
-                    <span className="ml-2 text-[#FF6B00] font-semibold">{item.price.toFixed(2)}€</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => handleItemChange(item.id, (selectedItems[item.id] || 0) - 1)}
-                      className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center font-bold text-[#1A1A1A] transition-colors"
-                    >
-                      -
-                    </button>
-                    <span className="w-8 text-center font-semibold">{selectedItems[item.id] || 0}</span>
-                    <button
-                      type="button"
-                      onClick={() => handleItemChange(item.id, (selectedItems[item.id] || 0) + 1)}
-                      className="w-8 h-8 rounded-full bg-[#FF6B00] hover:bg-[#E55D00] flex items-center justify-center font-bold text-white transition-colors"
-                    >
-                      +
-                    </button>
-                  </div>
+
+            {menuCategories.map((category) => (
+              <div key={category.title} className="mb-6">
+                <h4 className="flex items-center gap-2 text-md font-semibold text-[#1A1A1A] mb-3 pb-2 border-b border-gray-200">
+                  <span>{category.icon}</span> {category.title}
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {category.items.map((item) => (
+                    <div key={item.id} className="flex items-center justify-between bg-white p-3 rounded-lg border border-gray-200 hover:border-[#FF6B00]/30 transition-colors">
+                      <div className="flex-1 min-w-0">
+                        <span className="font-medium text-[#1A1A1A] text-sm">{item.name}</span>
+                        <span className="ml-2 text-[#FF6B00] font-semibold text-sm">{item.price.toFixed(2)}€</span>
+                      </div>
+                      <div className="flex items-center gap-2 flex-shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => handleItemChange(item.id, (selectedItems[item.id] || 0) - 1)}
+                          className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center font-bold text-[#1A1A1A] transition-colors"
+                        >
+                          -
+                        </button>
+                        <span className="w-6 text-center font-semibold text-sm">{selectedItems[item.id] || 0}</span>
+                        <button
+                          type="button"
+                          onClick={() => handleItemChange(item.id, (selectedItems[item.id] || 0) + 1)}
+                          className="w-8 h-8 rounded-full bg-[#FF6B00] hover:bg-[#E55D00] flex items-center justify-center font-bold text-white transition-colors"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
           {/* Total */}
