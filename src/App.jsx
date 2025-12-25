@@ -176,7 +176,7 @@ function MenuSection() {
     { name: 'Menu Donuts', price: '7,50€', description: '1 accompagnement + 1 donuts + 1 boisson', image: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=400&h=300&fit=crop' },
     { name: 'Menu Saucisse', price: '7,50€', description: '1 accompagnement + 2 saucisses + 1 boisson', image: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=400&h=300&fit=crop' },
     { name: 'Menu Nem', price: '7,50€', description: '1 accompagnement + 3 nems + 1 boisson', image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop' },
-    { name: 'Papa Crousty', price: '10€', description: 'Papa crousty + 1 boisson', badge: 'BEST-SELLER', image: 'https://images.unsplash.com/photo-1626645738196-c2a72c105313?w=400&h=300&fit=crop' },
+    { name: 'Papa Crousty', price: '10€', description: 'Papa crousty + 1 boisson', badge: 'BEST-SELLER', image: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=400&h=300&fit=crop' },
     { name: 'Menu Famille', price: '31€', description: '2 poulets entiers + 4 accompagnements + 4 boissons', badge: 'À PARTAGER', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop' },
   ]
 
