@@ -707,6 +707,17 @@ function OrderSection() {
     }, 0)
   }
 
+  const getTotalItems = () => {
+    return Object.values(selectedItems).reduce((sum, qty) => sum + qty, 0)
+  }
+
+  const scrollToForm = () => {
+    const formElement = document.getElementById('order-form')
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setIsSubmitted(true)
@@ -795,7 +806,7 @@ function OrderSection() {
         )}
 
         {/* Order Form */}
-        <form onSubmit={handleSubmit} style={{
+        <form id="order-form" onSubmit={handleSubmit} style={{
           background: 'white',
           borderRadius: '1.5rem',
           padding: '2rem',
@@ -1110,6 +1121,66 @@ function OrderSection() {
           </p>
         </form>
       </div>
+
+      {/* Floating Cart Button */}
+      {getTotalItems() > 0 && (
+        <button
+          type="button"
+          onClick={scrollToForm}
+          style={{
+            position: 'fixed',
+            bottom: '2rem',
+            right: '2rem',
+            background: 'linear-gradient(135deg, #FF6B00 0%, #E55D00 100%)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '1rem',
+            padding: '1rem 1.5rem',
+            cursor: 'pointer',
+            boxShadow: '0 10px 40px rgba(255,107,0,0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            zIndex: 100,
+            transition: 'transform 0.2s, box-shadow 0.2s',
+            animation: 'pulse 2s infinite'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'scale(1.05)'
+            e.currentTarget.style.boxShadow = '0 15px 50px rgba(255,107,0,0.6)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'scale(1)'
+            e.currentTarget.style.boxShadow = '0 10px 40px rgba(255,107,0,0.5)'
+          }}
+        >
+          <div style={{
+            position: 'relative',
+            fontSize: '1.5rem'
+          }}>
+            🛒
+            <span style={{
+              position: 'absolute',
+              top: '-8px',
+              right: '-8px',
+              background: '#FFB800',
+              color: '#1A1A1A',
+              fontSize: '0.7rem',
+              fontWeight: '800',
+              width: '20px',
+              height: '20px',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>{getTotalItems()}</span>
+          </div>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ fontWeight: '700', fontSize: '0.95rem' }}>Mon panier</div>
+            <div style={{ fontSize: '0.85rem', opacity: 0.9 }}>{calculateTotal().toFixed(2)}€</div>
+          </div>
+        </button>
+      )}
     </section>
   )
 }
