@@ -885,112 +885,6 @@ function OrderSection() {
   )
 }
 
-// ============ CONTACT SECTION ============
-function ContactSection() {
-  const hours = [
-    { day: 'Mardi - Samedi', hours: '11h30 - 22h30' },
-    { day: 'Dimanche', hours: '18h00 - 22h30' },
-    { day: 'Lundi', hours: 'Fermé', closed: true },
-  ]
-
-  return (
-    <section id="contact" className="py-24 md:py-32 bg-[#1A1A1A]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Où nous trouver</h2>
-          <p className="text-lg text-gray-400">Venez nous rendre visite !</p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Info */}
-          <div className="space-y-8">
-            {/* Address */}
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-[#FF6B00] rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-1">Adresse</h3>
-                <p className="text-gray-300">7 Square Dalibard<br />95670 Marly-la-Ville</p>
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-[#FF6B00] rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-1">Téléphone</h3>
-                <p className="text-gray-300">01 XX XX XX XX</p>
-              </div>
-            </div>
-
-            {/* Hours */}
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-[#FF6B00] rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-3">Horaires</h3>
-                <div className="space-y-2">
-                  {hours.map((item, index) => (
-                    <div key={index} className="flex justify-between gap-8">
-                      <span className="text-gray-300">{item.day}</span>
-                      <span className={item.closed ? 'text-red-400 font-semibold' : 'text-[#FFB800] font-semibold'}>
-                        {item.hours}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Social */}
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-[#FF6B00] rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-1">Suivez-nous</h3>
-                <a
-                  href="https://instagram.com/opapapoulet95"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#FFB800] hover:text-[#FF6B00] transition-colors font-medium"
-                >
-                  @opapapoulet95
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Map */}
-          <div className="relative h-80 lg:h-full min-h-[320px] rounded-xl overflow-hidden shadow-lg">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2614.8397845447!2d2.4951!3d49.0786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e63f3e5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2s7%20Square%20Dalibard%2C%2095670%20Marly-la-Ville!5e0!3m2!1sfr!2sfr!4v1699999999999!5m2!1sfr!2sfr"
-              className="absolute inset-0 w-full h-full border-0"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 // ============ FOOTER ============
 function Footer() {
   const scrollToSection = (sectionId) => {
@@ -1068,8 +962,7 @@ function Footer() {
               {[
                 { label: 'Accueil', id: 'accueil' },
                 { label: 'Notre Carte', id: 'menu' },
-                { label: 'Commander', id: 'commander' },
-                { label: 'Contact', id: 'contact' }
+                { label: 'Commander', id: 'commander' }
               ].map((link) => (
                 <button
                   key={link.id}
@@ -1182,6 +1075,87 @@ function Footer() {
           </div>
         </div>
 
+        {/* Map Section */}
+        <div id="contact" style={{ marginBottom: '3rem' }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.75rem',
+            marginBottom: '1.5rem'
+          }}>
+            <div style={{
+              height: '1px',
+              flex: 1,
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255,107,0,0.3) 100%)'
+            }} />
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.5rem 1.25rem',
+              background: 'rgba(255,107,0,0.1)',
+              borderRadius: '2rem',
+              border: '1px solid rgba(255,107,0,0.2)'
+            }}>
+              <span style={{ fontSize: '1.25rem' }}>📍</span>
+              <span style={{ color: '#FFB800', fontWeight: '600', fontSize: '0.9rem' }}>Nous trouver</span>
+            </div>
+            <div style={{
+              height: '1px',
+              flex: 1,
+              background: 'linear-gradient(90deg, rgba(255,107,0,0.3) 0%, transparent 100%)'
+            }} />
+          </div>
+
+          <div style={{
+            borderRadius: '1rem',
+            overflow: 'hidden',
+            boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
+            border: '3px solid rgba(255,107,0,0.3)',
+            position: 'relative'
+          }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2614.8397845447!2d2.4951!3d49.0786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e63f3e5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2s7%20Square%20Dalibard%2C%2095670%20Marly-la-Ville!5e0!3m2!1sfr!2sfr!4v1699999999999!5m2!1sfr!2sfr"
+              style={{
+                width: '100%',
+                height: '250px',
+                border: 'none',
+                display: 'block'
+              }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            {/* Map overlay gradient */}
+            <div style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: '60px',
+              background: 'linear-gradient(180deg, transparent 0%, rgba(26,26,26,0.8) 100%)',
+              pointerEvents: 'none'
+            }} />
+            {/* Address overlay */}
+            <div style={{
+              position: 'absolute',
+              bottom: '1rem',
+              left: '1rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: 'rgba(26,26,26,0.9)',
+              padding: '0.5rem 1rem',
+              borderRadius: '0.5rem',
+              backdropFilter: 'blur(10px)'
+            }}>
+              <span style={{ color: '#FF6B00' }}>🐔</span>
+              <span style={{ color: 'white', fontSize: '0.85rem', fontWeight: '500' }}>7 Square Dalibard, Marly-la-Ville</span>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom bar */}
         <div style={{
           borderTop: '1px solid rgba(255,255,255,0.1)',
@@ -1245,7 +1219,6 @@ function App() {
         <HeroSection />
         <MenuSection />
         <OrderSection />
-        <ContactSection />
       </main>
       <Footer />
     </div>
