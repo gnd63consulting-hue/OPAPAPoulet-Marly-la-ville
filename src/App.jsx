@@ -1001,55 +1001,214 @@ function Footer() {
   }
 
   return (
-    <footer className="bg-[#1A1A1A] border-t border-gray-800 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-[#FF6B00] rounded-full flex items-center justify-center">
-              <span className="text-white text-lg">🐔</span>
+    <footer style={{ background: 'linear-gradient(180deg, #1A1A1A 0%, #0D0D0D 100%)' }}>
+      {/* Gradient separator */}
+      <div style={{
+        height: '4px',
+        background: 'linear-gradient(90deg, #FF6B00 0%, #FFB800 50%, #FF6B00 100%)'
+      }} />
+
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 1.5rem 2rem' }}>
+        {/* Main footer content */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '3rem',
+          marginBottom: '3rem'
+        }}>
+          {/* Brand column */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+              <div style={{
+                width: '50px',
+                height: '50px',
+                background: 'linear-gradient(135deg, #FF6B00 0%, #FFB800 100%)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 15px rgba(255,107,0,0.4)'
+              }}>
+                <span style={{ fontSize: '1.75rem' }}>🐔</span>
+              </div>
+              <div>
+                <div style={{ color: 'white', fontWeight: '800', fontSize: '1.25rem', lineHeight: '1.2' }}>O'PAPA POULET</div>
+                <div style={{ color: '#FFB800', fontSize: '0.875rem', fontWeight: '600' }}>Ça Crousty !</div>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-white font-bold text-sm leading-tight">O'PAPA POULET</span>
-              <span className="text-[#FFB800] text-xs font-medium">Ça Crousty !</span>
+            <p style={{ color: '#9CA3AF', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+              Le meilleur poulet rôti HALAL de Marly-la-Ville. Saveurs authentiques et qualité garantie.
+            </p>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)',
+              padding: '0.5rem 1rem',
+              borderRadius: '2rem',
+              boxShadow: '0 4px 15px rgba(22,163,74,0.3)'
+            }}>
+              <span style={{ fontSize: '0.875rem' }}>✓</span>
+              <span style={{ color: 'white', fontWeight: '600', fontSize: '0.8rem' }}>100% HALAL CERTIFIÉ</span>
             </div>
           </div>
 
-          {/* Links */}
-          <nav className="flex flex-wrap justify-center gap-6">
-            <button onClick={() => scrollToSection('menu')} className="text-gray-400 hover:text-[#FF6B00] transition-colors">Menu</button>
-            <button onClick={() => scrollToSection('commander')} className="text-gray-400 hover:text-[#FF6B00] transition-colors">Commander</button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-400 hover:text-[#FF6B00] transition-colors">Contact</button>
-            <a
-              href="https://instagram.com/opapapoulet95"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#FF6B00] transition-colors"
-            >
-              Instagram
-            </a>
-          </nav>
+          {/* Navigation column */}
+          <div>
+            <h4 style={{
+              color: 'white',
+              fontWeight: '700',
+              fontSize: '1rem',
+              marginBottom: '1.25rem',
+              paddingBottom: '0.75rem',
+              borderBottom: '2px solid #FF6B00',
+              display: 'inline-block'
+            }}>Navigation</h4>
+            <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {[
+                { label: 'Accueil', id: 'accueil' },
+                { label: 'Notre Carte', id: 'menu' },
+                { label: 'Commander', id: 'commander' },
+                { label: 'Contact', id: 'contact' }
+              ].map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#9CA3AF',
+                    fontSize: '0.9rem',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: '0.25rem 0',
+                    transition: 'color 0.2s, transform 0.2s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = '#FF6B00'
+                    e.target.style.transform = 'translateX(5px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = '#9CA3AF'
+                    e.target.style.transform = 'translateX(0)'
+                  }}
+                >
+                  <span style={{ color: '#FF6B00' }}>›</span> {link.label}
+                </button>
+              ))}
+            </nav>
+          </div>
 
-          {/* Social & Badge */}
-          <div className="flex items-center gap-4">
-            <span className="bg-green-600 text-white text-xs px-3 py-1 rounded-full font-semibold">HALAL</span>
+          {/* Contact column */}
+          <div>
+            <h4 style={{
+              color: 'white',
+              fontWeight: '700',
+              fontSize: '1rem',
+              marginBottom: '1.25rem',
+              paddingBottom: '0.75rem',
+              borderBottom: '2px solid #FF6B00',
+              display: 'inline-block'
+            }}>Contact</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                <span style={{ color: '#FF6B00', fontSize: '1.1rem' }}>📍</span>
+                <div>
+                  <p style={{ color: 'white', fontSize: '0.9rem', fontWeight: '500' }}>7 Square Dalibard</p>
+                  <p style={{ color: '#9CA3AF', fontSize: '0.85rem' }}>95670 Marly-la-Ville</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <span style={{ color: '#FF6B00', fontSize: '1.1rem' }}>📞</span>
+                <p style={{ color: 'white', fontSize: '0.9rem', fontWeight: '500' }}>01 XX XX XX XX</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                <span style={{ color: '#FF6B00', fontSize: '1.1rem' }}>🕐</span>
+                <div>
+                  <p style={{ color: 'white', fontSize: '0.9rem', fontWeight: '500' }}>Mar - Sam : 11h30 - 22h30</p>
+                  <p style={{ color: '#9CA3AF', fontSize: '0.85rem' }}>Dim : 18h00 - 22h30</p>
+                  <p style={{ color: '#EF4444', fontSize: '0.85rem', fontWeight: '500' }}>Lundi : Fermé</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Social column */}
+          <div>
+            <h4 style={{
+              color: 'white',
+              fontWeight: '700',
+              fontSize: '1rem',
+              marginBottom: '1.25rem',
+              paddingBottom: '0.75rem',
+              borderBottom: '2px solid #FF6B00',
+              display: 'inline-block'
+            }}>Suivez-nous</h4>
+            <p style={{ color: '#9CA3AF', fontSize: '0.9rem', marginBottom: '1rem' }}>
+              Restez connectés pour nos offres et nouveautés !
+            </p>
             <a
               href="https://instagram.com/opapapoulet95"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-gray-800 hover:bg-[#FF6B00] rounded-full flex items-center justify-center transition-colors"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                background: 'linear-gradient(135deg, #E1306C 0%, #F77737 50%, #FCAF45 100%)',
+                padding: '0.75rem 1.25rem',
+                borderRadius: '0.75rem',
+                textDecoration: 'none',
+                boxShadow: '0 4px 15px rgba(225,48,108,0.3)',
+                transition: 'transform 0.2s, box-shadow 0.2s'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(225,48,108,0.4)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(225,48,108,0.3)'
+              }}
             >
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <svg style={{ width: '20px', height: '20px', fill: 'white' }} viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
+              <span style={{ color: 'white', fontWeight: '600', fontSize: '0.9rem' }}>@opapapoulet95</span>
             </a>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-500 text-sm">
-            © 2025 O Papa Poulet - Fait avec ❤️ à Marly-la-Ville
+        {/* Bottom bar */}
+        <div style={{
+          borderTop: '1px solid rgba(255,255,255,0.1)',
+          paddingTop: '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1rem',
+          textAlign: 'center'
+        }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            flexWrap: 'wrap',
+            justifyContent: 'center'
+          }}>
+            <span style={{ color: '#9CA3AF', fontSize: '0.85rem' }}>© 2025 O Papa Poulet</span>
+            <span style={{ color: '#4B5563' }}>•</span>
+            <span style={{ color: '#9CA3AF', fontSize: '0.85rem' }}>Tous droits réservés</span>
+            <span style={{ color: '#4B5563' }}>•</span>
+            <span style={{ color: '#9CA3AF', fontSize: '0.85rem' }}>Fait avec</span>
+            <span style={{ color: '#EF4444' }}>❤️</span>
+            <span style={{ color: '#9CA3AF', fontSize: '0.85rem' }}>à Marly-la-Ville</span>
+          </div>
+          <p style={{ color: '#6B7280', fontSize: '0.75rem' }}>
+            🐔 Le poulet qui croustille depuis 2025
           </p>
         </div>
       </div>
