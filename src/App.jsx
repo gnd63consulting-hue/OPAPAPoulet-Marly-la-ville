@@ -219,7 +219,7 @@ function MenuSection() {
 
         {/* Nos Menus */}
         <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-8 flex items-center gap-2">
+          <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-8 flex items-center justify-center gap-2">
             <span className="text-[#FF6B00]">🍗</span> Nos Menus
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -261,10 +261,10 @@ function MenuSection() {
         </div>
 
         {/* Grid for smaller items */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {/* Nos Poulets */}
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10">
-            <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center gap-2">
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
+            <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
               <span className="text-[#FF6B00]">🐔</span> Nos Poulets
             </h3>
             <div className="space-y-3">
@@ -278,8 +278,8 @@ function MenuSection() {
           </div>
 
           {/* Accompagnements */}
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10">
-            <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center gap-2">
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
+            <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
               <span className="text-[#FF6B00]">🍚</span> Accompagnements
             </h3>
             <div className="space-y-3">
@@ -293,8 +293,8 @@ function MenuSection() {
           </div>
 
           {/* Boissons & Desserts */}
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10">
-            <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center gap-2">
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:max-w-none">
+            <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
               <span className="text-[#FF6B00]">🥤</span> Boissons & Desserts
             </h3>
             <div className="space-y-3">
