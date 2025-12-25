@@ -1245,7 +1245,7 @@ function Footer() {
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <span style={{ color: '#FF6B00', fontSize: '1.1rem' }}>📞</span>
-                <p style={{ color: 'white', fontSize: '0.9rem', fontWeight: '500' }}>01 XX XX XX XX</p>
+                <p style={{ color: 'white', fontSize: '0.9rem', fontWeight: '500' }}>07 53 38 02 56</p>
               </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                 <span style={{ color: '#FF6B00', fontSize: '1.1rem' }}>🕐</span>
