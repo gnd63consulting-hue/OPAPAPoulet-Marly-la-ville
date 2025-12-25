@@ -110,43 +110,116 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
+      <div style={{
+        position: 'relative',
+        zIndex: 10,
+        textAlign: 'center',
+        padding: '5rem 1rem 0',
+        maxWidth: '900px',
+        margin: '0 auto'
+      }}>
         {/* Animated chicken icon */}
-        <div className="text-6xl md:text-8xl mb-8 animate-[bounce-soft_2s_ease-in-out_infinite]">
+        <div className="animate-[bounce-soft_2s_ease-in-out_infinite]" style={{ fontSize: '5rem', marginBottom: '2rem' }}>
           🐔
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 drop-shadow-lg">
+        <h1 style={{
+          fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
+          fontWeight: '800',
+          color: 'white',
+          marginBottom: '1.5rem',
+          textShadow: '0 4px 20px rgba(0,0,0,0.5)'
+        }}>
           O Papa Poulet
         </h1>
-        <p className="text-xl md:text-2xl text-[#FFB800] font-semibold mb-4">
+
+        <p style={{
+          fontSize: 'clamp(1.25rem, 4vw, 1.75rem)',
+          color: '#FFB800',
+          fontWeight: '600',
+          marginBottom: '1rem'
+        }}>
           Ça Crousty !
         </p>
-        <p className="text-lg md:text-xl text-white/90 mb-12">
+
+        <p style={{
+          fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+          color: 'rgba(255,255,255,0.9)',
+          marginBottom: '3rem'
+        }}>
           Le poulet qui croustille, à Marly-la-Ville
         </p>
 
         {/* Badges */}
-        <div className="flex flex-wrap justify-center gap-5 mb-14">
-          <span className="bg-green-600 text-white px-5 py-2.5 rounded-full font-semibold text-sm md:text-base shadow-lg">
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: '1.25rem',
+          marginBottom: '3.5rem'
+        }}>
+          <span style={{
+            background: '#16a34a',
+            color: 'white',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '2rem',
+            fontWeight: '600',
+            fontSize: '1rem',
+            boxShadow: '0 4px 15px rgba(22,163,74,0.4)'
+          }}>
             ✓ 100% HALAL
           </span>
-          <span className="bg-[#FF6B00] text-white px-5 py-2.5 rounded-full font-semibold text-sm md:text-base shadow-lg">
+          <span style={{
+            background: '#FF6B00',
+            color: 'white',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '2rem',
+            fontWeight: '600',
+            fontSize: '1rem',
+            boxShadow: '0 4px 15px rgba(255,107,0,0.4)'
+          }}>
             🚗 Livraison gratuite dès 15€
           </span>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          gap: '1.25rem',
+          justifyContent: 'center'
+        }}>
           <a
             href="#menu"
-            className="bg-[#FF6B00] hover:bg-[#E55D00] text-white font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-xl"
+            style={{
+              background: 'linear-gradient(135deg, #FF6B00 0%, #E55D00 100%)',
+              color: 'white',
+              fontWeight: '700',
+              padding: '1rem 2.5rem',
+              borderRadius: '3rem',
+              fontSize: '1.1rem',
+              textDecoration: 'none',
+              boxShadow: '0 8px 25px rgba(255,107,0,0.4)',
+              transition: 'transform 0.3s, box-shadow 0.3s'
+            }}
           >
             Voir le menu
           </a>
           <a
             href="#commander"
-            className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#1A1A1A] font-bold px-10 py-4 rounded-full text-lg transition-all duration-300"
+            style={{
+              background: 'rgba(255,255,255,0.1)',
+              backdropFilter: 'blur(10px)',
+              border: '2px solid white',
+              color: 'white',
+              fontWeight: '700',
+              padding: '1rem 2.5rem',
+              borderRadius: '3rem',
+              fontSize: '1.1rem',
+              textDecoration: 'none',
+              transition: 'background 0.3s, color 0.3s'
+            }}
           >
             Commander maintenant
           </a>
