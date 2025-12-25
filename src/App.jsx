@@ -260,50 +260,52 @@ function MenuSection() {
           </div>
         </div>
 
-        {/* Grid for smaller items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {/* Nos Poulets */}
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
-            <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
-              <span className="text-[#FF6B00]">🐔</span> Nos Poulets
-            </h3>
-            <div className="space-y-3">
-              {poulets.map((item, index) => (
-                <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-                  <span className="text-gray-700">{item.name}</span>
-                  <span className="font-semibold text-[#FF6B00]">{item.price}</span>
-                </div>
-              ))}
+        {/* Grid for smaller items - Centered container */}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
+            {/* Nos Poulets */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
+                <span className="text-[#FF6B00]">🐔</span> Nos Poulets
+              </h3>
+              <div className="space-y-3">
+                {poulets.map((item, index) => (
+                  <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                    <span className="text-gray-700">{item.name}</span>
+                    <span className="font-semibold text-[#FF6B00]">{item.price}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Accompagnements */}
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
-            <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
-              <span className="text-[#FF6B00]">🍚</span> Accompagnements
-            </h3>
-            <div className="space-y-3">
-              {accompagnements.map((item, index) => (
-                <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-                  <span className="text-gray-700">{item.name}</span>
-                  <span className="font-semibold text-[#FF6B00]">{item.price}</span>
-                </div>
-              ))}
+            {/* Accompagnements */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
+                <span className="text-[#FF6B00]">🍚</span> Accompagnements
+              </h3>
+              <div className="space-y-3">
+                {accompagnements.map((item, index) => (
+                  <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                    <span className="text-gray-700">{item.name}</span>
+                    <span className="font-semibold text-[#FF6B00]">{item.price}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Boissons & Desserts */}
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:max-w-none">
-            <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
-              <span className="text-[#FF6B00]">🥤</span> Boissons & Desserts
-            </h3>
-            <div className="space-y-3">
-              {boissons.map((item, index) => (
-                <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-                  <span className="text-gray-700">{item.name}</span>
-                  <span className="font-semibold text-[#FF6B00]">{item.price}</span>
-                </div>
-              ))}
+            {/* Boissons & Desserts */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
+                <span className="text-[#FF6B00]">🥤</span> Boissons & Desserts
+              </h3>
+              <div className="space-y-3">
+                {boissons.map((item, index) => (
+                  <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                    <span className="text-gray-700">{item.name}</span>
+                    <span className="font-semibold text-[#FF6B00]">{item.price}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
