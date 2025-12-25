@@ -172,12 +172,12 @@ function MenuSection() {
   }
 
   const menus = [
-    { name: 'Menu Poulet', price: '7,50€', description: '1 accompagnement + 1 cuisse de poulet + 1 boisson', image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop' },
-    { name: 'Menu Donuts', price: '7,50€', description: '1 accompagnement + 1 donuts + 1 boisson', image: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=400&h=300&fit=crop' },
-    { name: 'Menu Saucisse', price: '7,50€', description: '1 accompagnement + 2 saucisses + 1 boisson', image: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=400&h=300&fit=crop' },
-    { name: 'Menu Nem', price: '7,50€', description: '1 accompagnement + 3 nems + 1 boisson', image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop' },
-    { name: 'Papa Crousty', price: '10€', description: 'Papa crousty + 1 boisson', badge: 'BEST-SELLER', image: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=400&h=300&fit=crop' },
-    { name: 'Menu Famille', price: '31€', description: '2 poulets entiers + 4 accompagnements + 4 boissons', badge: 'À PARTAGER', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop' },
+    { name: 'Menu Poulet', price: '7,50€', description: '1 accompagnement + 1 cuisse de poulet + 1 boisson', image: 'https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🍗' },
+    { name: 'Menu Donuts', price: '7,50€', description: '1 accompagnement + 1 donuts + 1 boisson', image: 'https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🍩' },
+    { name: 'Menu Saucisse', price: '7,50€', description: '1 accompagnement + 2 saucisses + 1 boisson', image: 'https://images.pexels.com/photos/929137/pexels-photo-929137.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🌭' },
+    { name: 'Menu Nem', price: '7,50€', description: '1 accompagnement + 3 nems + 1 boisson', image: 'https://images.pexels.com/photos/955137/pexels-photo-955137.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🥟' },
+    { name: 'Papa Crousty', price: '10€', description: 'Papa crousty + 1 boisson', badge: 'BEST-SELLER', image: 'https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🍗' },
+    { name: 'Menu Famille', price: '31€', description: '2 poulets entiers + 4 accompagnements + 4 boissons', badge: 'À PARTAGER', image: 'https://images.pexels.com/photos/5836649/pexels-photo-5836649.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🍴' },
   ]
 
   const poulets = [
@@ -206,23 +206,23 @@ function MenuSection() {
 
   return (
     <section id="menu" className="py-20 bg-[#FFF5E6]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1rem', boxSizing: 'border-box' }}>
         {/* Section Title */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="text-3xl">🔥</span>
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+            <span style={{ fontSize: '1.875rem' }}>🔥</span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A]">Notre Carte</h2>
-            <span className="text-3xl">🔥</span>
+            <span style={{ fontSize: '1.875rem' }}>🔥</span>
           </div>
           <p className="text-lg text-gray-600">Des saveurs authentiques, du poulet qui croustille</p>
         </div>
 
         {/* Nos Menus */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-8 flex items-center justify-center gap-2">
+        <div style={{ marginBottom: '4rem' }}>
+          <h3 style={{ textAlign: 'center', marginBottom: '2rem' }} className="text-2xl md:text-3xl font-bold text-[#1A1A1A] flex items-center justify-center gap-2">
             <span className="text-[#FF6B00]">🍗</span> Nos Menus
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', maxWidth: '1200px', margin: '0 auto' }}>
             {menus.map((item, index) => (
               <div
                 key={index}
@@ -231,7 +231,7 @@ function MenuSection() {
                 <div className="relative h-[200px] overflow-hidden bg-[#FFF5E6] rounded-t-xl">
                   {imageErrors[index] ? (
                     <div className="w-full h-full flex flex-col items-center justify-center">
-                      <span className="text-4xl mb-2">🍗</span>
+                      <span className="text-4xl mb-2">{item.emoji || '🍗'}</span>
                       <span className="text-[#FF6B00] font-semibold text-sm">{item.name}</span>
                     </div>
                   ) : (
@@ -239,6 +239,8 @@ function MenuSection() {
                       src={item.image}
                       alt={item.name}
                       onError={() => handleImageError(index)}
+                      crossOrigin="anonymous"
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   )}
@@ -262,10 +264,10 @@ function MenuSection() {
 
         {/* Grid for smaller items - Centered container */}
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ maxWidth: '900px', width: '100%', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: '960px', width: '100%', margin: '0 auto' }}>
             {/* Nos Poulets */}
             <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
+              <h3 style={{ textAlign: 'center' }} className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
                 <span className="text-[#FF6B00]">🐔</span> Nos Poulets
               </h3>
               <div className="space-y-3">
@@ -280,7 +282,7 @@ function MenuSection() {
 
             {/* Accompagnements */}
             <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
+              <h3 style={{ textAlign: 'center' }} className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
                 <span className="text-[#FF6B00]">🍚</span> Accompagnements
               </h3>
               <div className="space-y-3">
@@ -295,7 +297,7 @@ function MenuSection() {
 
             {/* Boissons & Desserts */}
             <div className="bg-white rounded-xl p-6 shadow-lg border border-[#FF6B00]/10 hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
+              <h3 style={{ textAlign: 'center' }} className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center justify-center gap-2">
                 <span className="text-[#FF6B00]">🥤</span> Boissons & Desserts
               </h3>
               <div className="space-y-3">
