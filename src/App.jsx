@@ -112,41 +112,41 @@ function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
         {/* Animated chicken icon */}
-        <div className="text-6xl md:text-8xl mb-6 animate-[bounce-soft_2s_ease-in-out_infinite]">
+        <div className="text-6xl md:text-8xl mb-8 animate-[bounce-soft_2s_ease-in-out_infinite]">
           🐔
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 drop-shadow-lg">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 drop-shadow-lg">
           O Papa Poulet
         </h1>
-        <p className="text-xl md:text-2xl text-[#FFB800] font-semibold mb-2">
+        <p className="text-xl md:text-2xl text-[#FFB800] font-semibold mb-4">
           Ça Crousty !
         </p>
-        <p className="text-lg md:text-xl text-white/90 mb-8">
+        <p className="text-lg md:text-xl text-white/90 mb-12">
           Le poulet qui croustille, à Marly-la-Ville
         </p>
 
         {/* Badges */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          <span className="bg-green-600 text-white px-4 py-2 rounded-full font-semibold text-sm md:text-base shadow-lg">
+        <div className="flex flex-wrap justify-center gap-5 mb-14">
+          <span className="bg-green-600 text-white px-5 py-2.5 rounded-full font-semibold text-sm md:text-base shadow-lg">
             ✓ 100% HALAL
           </span>
-          <span className="bg-[#FF6B00] text-white px-4 py-2 rounded-full font-semibold text-sm md:text-base shadow-lg">
+          <span className="bg-[#FF6B00] text-white px-5 py-2.5 rounded-full font-semibold text-sm md:text-base shadow-lg">
             🚗 Livraison gratuite dès 15€
           </span>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-5 justify-center">
           <a
             href="#menu"
-            className="bg-[#FF6B00] hover:bg-[#E55D00] text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-xl"
+            className="bg-[#FF6B00] hover:bg-[#E55D00] text-white font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-xl"
           >
             Voir le menu
           </a>
           <a
             href="#commander"
-            className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#1A1A1A] font-bold px-8 py-4 rounded-full text-lg transition-all duration-300"
+            className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#1A1A1A] font-bold px-10 py-4 rounded-full text-lg transition-all duration-300"
           >
             Commander maintenant
           </a>
