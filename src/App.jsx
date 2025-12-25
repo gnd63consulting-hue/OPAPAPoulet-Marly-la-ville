@@ -249,7 +249,7 @@ function MenuSection() {
     { name: 'Menu Donuts', price: '7,50€', description: '1 accompagnement + 1 donuts + 1 boisson', image: 'https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🍩' },
     { name: 'Menu Saucisse', price: '7,50€', description: '1 accompagnement + 2 saucisses + 1 boisson', image: 'https://images.pexels.com/photos/929137/pexels-photo-929137.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🌭' },
     { name: 'Menu Nem', price: '7,50€', description: '1 accompagnement + 3 nems + 1 boisson', image: 'https://images.pexels.com/photos/955137/pexels-photo-955137.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🥟' },
-    { name: 'Papa Crousty', price: '10€', description: 'Papa crousty + 1 boisson', badge: 'BEST-SELLER', image: 'https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🍗' },
+    { name: 'Papa Crousty', price: '10€', description: 'Papa crousty + 1 boisson', badge: 'BEST-SELLER', image: 'https://drive.google.com/uc?export=view&id=1WAUvDAuBSJ9cjT76S7HH_zrujN511BOj', emoji: '🍗' },
     { name: 'Menu Famille', price: '31€', description: '2 poulets entiers + 4 accompagnements + 4 boissons', badge: 'À PARTAGER', image: 'https://images.pexels.com/photos/5836649/pexels-photo-5836649.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', emoji: '🍴' },
   ]
 
