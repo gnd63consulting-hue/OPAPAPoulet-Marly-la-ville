@@ -278,34 +278,121 @@ function MenuSection() {
   ]
 
   return (
-    <section id="menu" className="py-24 md:py-32 bg-[#FFF5E6]">
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1rem', boxSizing: 'border-box' }}>
+    <section id="menu" style={{
+      padding: '8rem 0 6rem',
+      background: 'linear-gradient(180deg, #FFFAF5 0%, #FFF5E6 50%, #FFFAF5 100%)'
+    }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem', boxSizing: 'border-box' }}>
         {/* Section Title */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-            <span style={{ fontSize: '1.875rem' }}>🔥</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A]">Notre Carte</h2>
-            <span style={{ fontSize: '1.875rem' }}>🔥</span>
+          {/* Decorative badge */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            background: 'linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%)',
+            padding: '0.5rem 1.25rem',
+            borderRadius: '2rem',
+            marginBottom: '1.5rem',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.15)'
+          }}>
+            <span style={{ fontSize: '1rem' }}>🔥</span>
+            <span style={{ color: '#FFB800', fontWeight: '600', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Menu du restaurant</span>
+            <span style={{ fontSize: '1rem' }}>🔥</span>
           </div>
-          <p className="text-lg text-gray-600">Des saveurs authentiques, du poulet qui croustille</p>
+
+          <h2 style={{
+            fontSize: 'clamp(2.5rem, 6vw, 3.5rem)',
+            fontWeight: '800',
+            color: '#1A1A1A',
+            marginBottom: '1rem',
+            lineHeight: '1.1'
+          }}>
+            Notre Carte
+          </h2>
+
+          <p style={{
+            fontSize: '1.15rem',
+            color: '#666',
+            maxWidth: '500px',
+            margin: '0 auto'
+          }}>
+            Des saveurs authentiques, du poulet qui croustille
+          </p>
+
+          {/* Decorative line */}
+          <div style={{
+            width: '80px',
+            height: '4px',
+            background: 'linear-gradient(90deg, #FF6B00, #FFB800)',
+            margin: '1.5rem auto 0',
+            borderRadius: '2px'
+          }} />
         </div>
 
         {/* Nos Menus */}
-        <div style={{ marginBottom: '4rem' }}>
-          <h3 style={{ textAlign: 'center', marginBottom: '2rem' }} className="text-2xl md:text-3xl font-bold text-[#1A1A1A] flex items-center justify-center gap-2">
-            <span className="text-[#FF6B00]">🍗</span> Nos Menus
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ marginBottom: '5rem' }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1rem',
+            marginBottom: '2.5rem'
+          }}>
+            <div style={{ height: '2px', width: '60px', background: 'linear-gradient(90deg, transparent, #FF6B00)' }} />
+            <h3 style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              fontSize: '1.75rem',
+              fontWeight: '700',
+              color: '#1A1A1A',
+              margin: 0
+            }}>
+              <span>🍗</span> Nos Menus
+            </h3>
+            <div style={{ height: '2px', width: '60px', background: 'linear-gradient(90deg, #FF6B00, transparent)' }} />
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
             {menus.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden border border-[#FF6B00]/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                style={{
+                  background: 'white',
+                  borderRadius: '1.25rem',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.08)',
+                  border: '1px solid rgba(255,107,0,0.1)',
+                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)'
+                  e.currentTarget.style.boxShadow = '0 20px 50px rgba(255,107,0,0.15)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 10px 40px rgba(0,0,0,0.08)'
+                }}
               >
-                <div className="relative h-[200px] overflow-hidden bg-[#FFF5E6] rounded-t-xl">
+                <div style={{
+                  position: 'relative',
+                  height: '200px',
+                  overflow: 'hidden',
+                  background: '#FFF5E6'
+                }}>
                   {imageErrors[index] ? (
-                    <div className="w-full h-full flex flex-col items-center justify-center">
-                      <span className="text-4xl mb-2">{item.emoji || '🍗'}</span>
-                      <span className="text-[#FF6B00] font-semibold text-sm">{item.name}</span>
+                    <div style={{
+                      width: '100%',
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                      <span style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>{item.emoji || '🍗'}</span>
+                      <span style={{ color: '#FF6B00', fontWeight: '600', fontSize: '0.9rem' }}>{item.name}</span>
                     </div>
                   ) : (
                     <img
@@ -314,21 +401,72 @@ function MenuSection() {
                       onError={() => handleImageError(index)}
                       crossOrigin="anonymous"
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.5s'
+                      }}
+                      onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
+                      onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                     />
                   )}
+                  {/* Gradient overlay */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: '80px',
+                    background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 100%)',
+                    pointerEvents: 'none'
+                  }} />
                   {item.badge && (
-                    <span className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${item.badge === 'BEST-SELLER' ? 'bg-[#FFB800]' : 'bg-[#8B2500]'}`}>
-                      {item.badge}
+                    <span style={{
+                      position: 'absolute',
+                      top: '1rem',
+                      right: '1rem',
+                      padding: '0.4rem 1rem',
+                      borderRadius: '2rem',
+                      fontSize: '0.75rem',
+                      fontWeight: '700',
+                      color: 'white',
+                      background: item.badge === 'BEST-SELLER'
+                        ? 'linear-gradient(135deg, #FFB800 0%, #FF8C00 100%)'
+                        : 'linear-gradient(135deg, #8B2500 0%, #A52A2A 100%)',
+                      boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                    }}>
+                      {item.badge === 'BEST-SELLER' ? '⭐ ' : '👨‍👩‍👧‍👦 '}{item.badge}
                     </span>
                   )}
-                </div>
-                <div className="p-5">
-                  <div className="flex justify-between items-start mb-2">
-                    <h4 className="text-xl font-bold text-[#1A1A1A]">{item.name}</h4>
-                    <span className="text-xl font-bold text-[#FF6B00]">{item.price}</span>
+                  {/* Price badge on image */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '1rem',
+                    left: '1rem',
+                    background: 'linear-gradient(135deg, #FF6B00 0%, #E55D00 100%)',
+                    color: 'white',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '2rem',
+                    fontWeight: '800',
+                    fontSize: '1.1rem',
+                    boxShadow: '0 4px 15px rgba(255,107,0,0.4)'
+                  }}>
+                    {item.price}
                   </div>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
+                </div>
+                <div style={{ padding: '1.25rem 1.5rem' }}>
+                  <h4 style={{
+                    fontSize: '1.25rem',
+                    fontWeight: '700',
+                    color: '#1A1A1A',
+                    marginBottom: '0.5rem'
+                  }}>{item.name}</h4>
+                  <p style={{
+                    color: '#666',
+                    fontSize: '0.9rem',
+                    lineHeight: '1.5'
+                  }}>{item.description}</p>
                 </div>
               </div>
             ))}
@@ -337,9 +475,27 @@ function MenuSection() {
 
         {/* La Carte Complète - New stylish design */}
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <h3 style={{ textAlign: 'center', marginBottom: '2rem' }} className="text-2xl md:text-3xl font-bold text-[#1A1A1A] flex items-center justify-center gap-2">
-            <span className="text-[#FF6B00]">📋</span> La Carte Complète
-          </h3>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1rem',
+            marginBottom: '2.5rem'
+          }}>
+            <div style={{ height: '2px', width: '60px', background: 'linear-gradient(90deg, transparent, #FF6B00)' }} />
+            <h3 style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              fontSize: '1.75rem',
+              fontWeight: '700',
+              color: '#1A1A1A',
+              margin: 0
+            }}>
+              <span>📋</span> La Carte Complète
+            </h3>
+            <div style={{ height: '2px', width: '60px', background: 'linear-gradient(90deg, #FF6B00, transparent)' }} />
+          </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
             {/* Nos Poulets & Viandes */}
